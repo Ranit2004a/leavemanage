@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Leave Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+<nav class="topnav">
+  <div class="logo" style="margin-right: 50px;">Eastern Coalfields Limited</div>
+  <ul class="nav-links">
+    <li><a href="#" id="dashboardLink">Dashboard</a></li>
+    <li><a href="#" id="employeesListLink">Employees List </a></li>
+    <li><a href="#">Department </a></li>
+    <li class="dropdown-leave">
+      <a href="#" id="leaveTypesLink">Leave Types <span id="leaveArrow">▼</span></a>
+      <ul id="leaveDropdown" class="leave-dropdown" style="display: none; position: absolute;border-radius: 5px; background: #57b63b; list-style: circle ; padding: 10px 20px; margin: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+        <li style="margin-bottom: 8px;">Privilege/Earned Leave</li>
+        <li style="margin-bottom: 8px;">Casual Leave</li>
+        <li style="margin-bottom: 8px;">Sick Leave</li>
+        <li style="margin-bottom: 8px;">Maternity Leave</li>
+        <li style="margin-bottom: 8px;">Paternity Leave</li>
+        <li>Compensatory Off</li>
+      </ul>
+    </li>
+    <li><a href="#">Settings</a></li>
+  </ul>
+  <div class="user-dropdown">
+    <span id="userToggle">👤 Sign in ▼</span>
+    <div id="dropdownMenu" class="dropdown-content">
+        <!-- LOGIN SCREEN -->
+<div class="login-container" id="loginScreen"> </div>
+</nav>
+
+
+
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <div class="dashboard" id="dashboardSection" style="display:none;">
+      <h1>Admin Dashboard</h1>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Total Employees</h3>
+          <p>132</p>
+        </div>
+        <div class="card">
+          <h3>Departments</h3>
+          <p>8</p>
+        </div>
+        <div class="card">
+          <h3>Pending Leaves</h3>
+          <p>14</p>
+        </div>
+        <div class="card">
+          <h3>Today's Leaves</h3>
+          <p>5</p>
+        </div>
+      </div>
+      <div class="dashboard-section">
+        <h2>📅 Upcoming Leaves</h2>
+        <ul> 
+          <li>Priya Sharma - 13th July - Vacation Leave</li>
+          <li>Ravi Kumar - 14th July - Casual Leave</li>
+        </ul>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: center; margin-top: 30px;">
+      <div style="background: #b7e9ad; border-radius: 18px; padding: 18px 40px; box-shadow: 0 2px 8px rgba(162, 26, 26, 0.08); display: inline-block;">
+        <h1 style="font-weight: bold; margin: 0;" id="mainHeadline">Employee Leave Management System</h1>
+      </div>
+    </div>
+    <div style="height: 32px;"></div>
+    <form id="employeeForm" class="form-card">
+      <section>
+        <h2>👨‍💼 Employee Info</h2>
+        <div class="form-group">
+          <input type="text" id="empId" placeholder="Employee ID" required />
+          <input type="text" id="name" placeholder="Full Name" required />
+          <input type="date" id="dob" required />
+          <input type="text" id="contact" placeholder="Contact Number" required />
+          <input type="text" id="address" placeholder="Address" required />
+          <input type="text" id="department" placeholder="Department" required />
+          <input type="text" id="designation" placeholder="Designation" required />
+        </div>
+      </section>
+
+      <section>
+        <h2>📊 Leave Credits</h2>
+        <div class="form-group">
+          <input type="number" id="lwp" placeholder="LWP (Days)" required />
+          <input type="number" id="sl" placeholder="Sick Leave (Days)" required />
+          <input type="number" id="vl" placeholder="Vacation Leave (Days)" required />
+        </div>
+      </section>
+
+      <section>
+        <h2>📅 Leave Record</h2>
+        <div class="form-group">
+          <input type="text" id="leaveType" placeholder="Leave Type (e.g. SL - Sick Leave)" required />
+          <input type="date" id="leaveDate" required />
+          <input type="number" step="0.5" id="leaveDays" placeholder="Days" required />
+          <input type="text" id="remarks" placeholder="Remarks" />
+        </div>
+      </section>
+
+      <button type="submit" class="submit-btn">💾 Save Record</button>
+    </form>
+
+    <div id="output" class="output-card"></div>
+
+    <div class="employees-list" id="employeesListSection" style="display:none;">
+      <h1>Employees List</h1>
+      <table style="width:100%; border-collapse:collapse; background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+        <thead style="background:#b7e9ad;">
+          <tr>
+            <th style="padding:10px; text-align:left;">Employee ID</th>
+            <th style="padding:10px; text-align:left;">Name</th>
+            <th style="padding:10px; text-align:left;">Department</th>
+            <th style="padding:10px; text-align:left;">Designation</th>
+            <th style="padding:10px; text-align:left;">Contact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>EMP001</td>
+            <td>John Doe</td>
+            <td>HR</td>
+            <td>Manager</td>
+            <td>9876543210</td>
+          </tr>
+          <tr>
+            <td>EMP002</td>
+            <td>Priya Sharma</td>
+            <td>Finance</td>
+            <td>Accountant</td>
+            <td>9876543211</td>
+          </tr>
+          <tr>
+            <td>EMP003</td>
+            <td>Ravi Kumar</td>
+            <td>IT</td>
+            <td>Developer</td>
+            <td>9876543212</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Show dashboard interface on Dashboard click
+    document.getElementById('dashboardLink').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('dashboardSection').style.display = 'block';
+      document.getElementById('employeesListSection').style.display = 'none';
+      document.getElementById('employeeForm').style.display = 'none';
+      document.getElementById('mainHeadline').style.display = 'none';
+    });
+
+    // Show Employees List interface on Employees List click
+    document.getElementById('employeesListLink').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('dashboardSection').style.display = 'none';
+      document.getElementById('employeesListSection').style.display = 'block';
+      document.getElementById('employeeForm').style.display = 'none';
+      document.getElementById('mainHeadline').style.display = 'none';
+    });
+
+    // Toggle Leave Types dropdown
+    document.getElementById('leaveTypesLink').addEventListener('click', function(e) {
+      e.preventDefault();
+      var dropdown = document.getElementById('leaveDropdown');
+      var arrow = document.getElementById('leaveArrow');
+      if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+        dropdown.style.display = 'block';
+        arrow.textContent = '▲';
+      } else {
+        dropdown.style.display = 'none';
+        arrow.textContent = '▼';
+      }
+    });
+  </script>
+</body>
+</html>
