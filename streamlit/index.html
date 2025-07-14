@@ -30,8 +30,8 @@
   <div class="user-dropdown">
     <span id="userToggle">👤 Sign in ▼</span>
     <div id="dropdownMenu" class="dropdown-content">
-        <!-- LOGIN SCREEN -->
-<div class="login-container" id="loginScreen"> </div>
+        
+
 </nav>
 
 
@@ -67,7 +67,8 @@
         </ul>
       </div>
     </div>
-    <div style="display: flex; justify-content: center; margin-top: 30px;">
+
+    <div style="display: flex; justify-content: center; margin-top: 30px;" id="mainHeadlineBox">
       <div style="background: #b7e9ad; border-radius: 18px; padding: 18px 40px; box-shadow: 0 2px 8px rgba(162, 26, 26, 0.08); display: inline-block;">
         <h1 style="font-weight: bold; margin: 0;" id="mainHeadline">Employee Leave Management System</h1>
       </div>
@@ -108,10 +109,49 @@
 
       <button type="submit" class="submit-btn">💾 Save Record</button>
     </form>
+    
 
-    <div id="output" class="output-card"></div>
 
-    <div class="employees-list" id="employeesListSection" style="display:none;">
+    <div style="display: none;" id="employeesListSection">
+      <div style="display: flex; justify-content: center; margin-top: 30px;">
+        <div style="background: #b7e9ad; border-radius: 18px; padding: 18px 40px; box-shadow: 0 2px 8px rgba(162, 26, 26, 0.08); display: inline-block;">
+          <h1 style="font-weight: bold; margin: 0;">Employee Leave Management System</h1>
+        </div>
+      </div>
+      <div style="height: 32px;"></div>
+      <form id="employeeFormInList" class="form-card">
+        <section>
+          <h2>👨‍💼 Employee Info</h2>
+          <div class="form-group">
+            <input type="text" id="empIdList" placeholder="Employee ID" required />
+            <input type="text" id="nameList" placeholder="Full Name" required />
+            <input type="date" id="dobList" required />
+            <input type="text" id="contactList" placeholder="Contact Number" required />
+            <input type="text" id="addressList" placeholder="Address" required />
+            <input type="text" id="departmentList" placeholder="Department" required />
+            <input type="text" id="designationList" placeholder="Designation" required />
+          </div>
+        </section>
+        <section>
+          <h2>📊 Leave Credits</h2>
+          <div class="form-group">
+            <input type="number" id="lwpList" placeholder="LWP (Days)" required />
+            <input type="number" id="slList" placeholder="Sick Leave (Days)" required />
+            <input type="number" id="vlList" placeholder="Vacation Leave (Days)" required />
+          </div>
+        </section>
+        <section>
+          <h2>📅 Leave Record</h2>
+          <div class="form-group">
+            <input type="text" id="leaveTypeList" placeholder="Leave Type (e.g. SL - Sick Leave)" required />
+            <input type="date" id="leaveDateList" required />
+            <input type="number" step="0.5" id="leaveDaysList" placeholder="Days" required />
+            <input type="text" id="remarksList" placeholder="Remarks" />
+          </div>
+        </section>
+        <button type="submit" class="submit-btn">💾 Save Record</button>
+      </form>
+      <div style="height: 32px;"></div>
       <h1>Employees List</h1>
       <table style="width:100%; border-collapse:collapse; background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
         <thead style="background:#b7e9ad;">
@@ -158,7 +198,7 @@
       document.getElementById('dashboardSection').style.display = 'block';
       document.getElementById('employeesListSection').style.display = 'none';
       document.getElementById('employeeForm').style.display = 'none';
-      document.getElementById('mainHeadline').style.display = 'none';
+      document.getElementById('mainHeadlineBox').style.display = 'none';
     });
 
     // Show Employees List interface on Employees List click
@@ -167,7 +207,7 @@
       document.getElementById('dashboardSection').style.display = 'none';
       document.getElementById('employeesListSection').style.display = 'block';
       document.getElementById('employeeForm').style.display = 'none';
-      document.getElementById('mainHeadline').style.display = 'none';
+      document.getElementById('mainHeadlineBox').style.display = 'none';
     });
 
     // Toggle Leave Types dropdown
